@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Book Library</title>
+  </head>
+  <body>
+    <header>
+      <img src="img/library-icon.svg" alt="Library Icon" class="logo" />
+      <h1 class="header-title">Your Book Library</h1>
+      <a
+        href="https://github.com/znataniel"
+        rel="noreferrer"
+        target="_blank"
+        class="github"
+      >
+        <img src="img/github-mark-white.svg" alt="Github Cat Icon" />
+      </a>
+    </header>
+    <aside>
+      <form action="" class="book-submit">
+        <h2>Fill to add a book</h2>
+        <input type="text" placeholder="Title" required />
+        <input type="text" placeholder="Author" required />
+        <input type="number" placeholder="Pages" min="1" required />
+        <div class="hasBeenRead">
+          <input type="checkbox" id="hasBeenRead" />
+          <label for="hasBeenRead">Have you read this book?</label>
+        </div>
+        <button type="submit">Add book</button>
+      </form>
+    </aside>
+    <section class="book-list">
+      <div class="book-template">
+        <p class="book-title">Title</p>
+        <p class="book-author">Author</p>
+        <p class="book-pages">Pages</p>
+        <p class="book-read">Read?</p>
+      </div>
+    </section>
+  </body>
+</html>
