@@ -10,6 +10,7 @@
   --bg-strong-alpha: #2c2b3c95;
   --otherlol: #1b2432;
   --acc: #b76d68;
+  --acc-lighter: #c58b87;
   --tea-green: #4b954e;
   --black-acc: #121420;
 
@@ -119,6 +120,40 @@ input[type="number"]:valid {
   border-color: var(--tea-green);
 }
 
+.hasBeenRead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+input#hasBeenRead {
+  height: 100%;
+}
+
+.book-submit button {
+  padding: 1rem 2rem;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  color: var(--black-acc);
+  background-color: var(--acc);
+  border: 0;
+  border-radius: 1rem;
+}
+
+.book-submit button:hover {
+  background-color: var(--acc-lighter);
+}
+
+.book-submit button:active {
+  background-color: var(--acc-lighter);
+  transform: translate(1px, 2px);
+}
+
 .book-list {
   grid-area: bookList;
 
@@ -130,7 +165,7 @@ input[type="number"]:valid {
 .book-template,
 .book {
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
 
   padding: 1rem;
   margin-bottom: 2rem;
@@ -147,6 +182,10 @@ input[type="number"]:valid {
   color: white;
   font-size: 2rem;
   text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .books {
@@ -163,4 +202,12 @@ input[type="number"]:valid {
 
 .book p {
   font-size: 1rem;
+}
+
+.book button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: white;
 }
