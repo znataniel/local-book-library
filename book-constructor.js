@@ -16,7 +16,7 @@ function addBook(title, author, pages, readStatus) {
   bookArray.push(newBook);
 }
 
-function updateBookStack() {
+function loadBookStack() {
   bookArray.forEach((book) => {
     let newEntry = document.createElement("div");
     newEntry.classList.add("book");
@@ -32,6 +32,15 @@ function updateBookStack() {
         newEntry.appendChild(newVal);
       }
     }
+
+    const button = document.createElement("button");
+    button.setAttribute("type", "button");
+    button.textContent = "X";
+    button.addEventListener("click", () => {
+      bookStack.removeChild(newEntry);
+      bookArray.pop(this);
+    });
+    newEntry.appendChild(button);
 
     bookStack.appendChild(newEntry);
   });
@@ -56,7 +65,7 @@ function loadDummyBooks() {
 }
 
 const bookStack = document.querySelector("div.books");
+const bookFormInput = document.querySelectorAll("form.book-submit input");
 bookArray = new Array();
-clearBookStack();
 loadDummyBooks();
-updateBookStack();
+loadBookStack();
