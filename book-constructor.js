@@ -12,13 +12,45 @@ function Book(bTitle, bAuthor, bPages, bRead) {
 }
 
 function addBook(title, author, pages, readStatus) {
-  newBook = new Book(title, author, pages, readStatus);
-  bookArray.push(newBook);
+  bookArray.push(new Book(title, author, pages, readStatus));
+}
+
+function addBookFromForm(e) {
+  e.preventDefault();
+  let emptyFlag = true;
+  bookFormInput.forEach((b) => {
+    if (b.type != "checkbox") {
+      if (!b.value) {
+        emptyFlag = false;
+      }
+    }
+  });
+  if (emptyFlag) {
+    addBook(
+      bookFormInput[0].value,
+      bookFormInput[1].value,
+      bookFormInput[2].value,
+      bookFormInput[3].checked,
+    );
+  } else {
+    alert("Please fill in the form.");
+    return -1;
+  }
+
+  bookFormInput.forEach((b) => {
+    b.value = "";
+    if (b.type === "checkbox") {
+      b.checked = false;
+    }
+  });
+
+  clearBookStack();
+  loadBookStack();
 }
 
 function loadBookStack() {
   bookArray.forEach((book) => {
-    let newEntry = document.createElement("div");
+    const newEntry = document.createElement("div");
     newEntry.classList.add("book");
 
     for (let val in book) {
@@ -66,6 +98,10 @@ function loadDummyBooks() {
 
 const bookStack = document.querySelector("div.books");
 const bookFormInput = document.querySelectorAll("form.book-submit input");
-bookArray = new Array();
+const bookFormSubmit = document.querySelector(".book-submit button");
+let bookArray = new Array();
+
+bookFormSubmit.addEventListener("click", addBookFromForm);
+
 loadDummyBooks();
 loadBookStack();
