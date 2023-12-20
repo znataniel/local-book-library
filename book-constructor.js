@@ -58,6 +58,11 @@ function loadBookStack() {
         const newVal = document.createElement("p");
         if (typeof book[val] === "boolean") {
           newVal.textContent = book[val] ? "Yes" : "No";
+
+          newVal.addEventListener("click", () => {
+            book[val] = book[val] ? false : true;
+            newVal.textContent = book[val] ? "Yes" : "No";
+          });
         } else {
           newVal.textContent = book[val];
         }
