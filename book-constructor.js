@@ -55,8 +55,10 @@ function loadBookStack() {
 
     for (let val in book) {
       if (book.hasOwnProperty(val)) {
-        const newVal = document.createElement("p");
+        let newVal;
         if (typeof book[val] === "boolean") {
+          newVal = document.createElement("button");
+          newVal.setAttribute("type", "button");
           newVal.textContent = book[val] ? "Yes" : "No";
 
           newVal.addEventListener("click", () => {
@@ -64,6 +66,7 @@ function loadBookStack() {
             newVal.textContent = book[val] ? "Yes" : "No";
           });
         } else {
+          newVal = document.createElement("p");
           newVal.textContent = book[val];
         }
         newEntry.appendChild(newVal);
@@ -90,23 +93,9 @@ function clearBookStack() {
   });
 }
 
-function loadDummyBooks() {
-  addBook(
-    "The Blank Slate: A Modern Denial of Human Nature",
-    "Steven Pinker",
-    197,
-    false,
-  );
-  addBook("La Rebelion de Las Masas", "Jose Ortega & Gasset", 203, true);
-  addBook("El Hombre Mediocre", "Jose Ingenieros", 112, false);
-}
-
 const bookStack = document.querySelector("div.books");
 const bookFormInput = document.querySelectorAll("form.book-submit input");
 const bookFormSubmit = document.querySelector(".book-submit button");
 let bookArray = new Array();
 
 bookFormSubmit.addEventListener("click", addBookFromForm);
-
-loadDummyBooks();
-loadBookStack();

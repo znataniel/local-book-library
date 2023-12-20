@@ -205,9 +205,23 @@ input#hasBeenRead {
 }
 
 .book button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background-color: transparent;
+  box-sizing: border-box;
+
+  margin: 0 2rem;
+  padding: 0.5rem;
+
   color: white;
+  background-color: var(--acc);
+  border: 0;
+  border-radius: 1rem;
+  font-weight: 700;
+}
+
+.book button:hover {
+  background-color: var(--acc-lighter);
+}
+
+.book button:active {
+  background-color: var(--acc-lighter);
+  transform: translate(1px, 2px);
 }
